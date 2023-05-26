@@ -26,7 +26,7 @@ A custom board with the following hardware:
 - SAMA5D27-D1G
   - Arm Cortex A5 running up to 500 MHz, with 1Gbit DDR2 memory
   - Many peripherals, almost all of which are used with this design
-    - CAN, LIN, LCD, resistive touchscreen (TSD), main and flexcom U(S)ART, SPI, I2C, PWM, RTTC, ADC, USB device+host, Class D Audio
+    - CAN, LIN, LCD, resistive touchscreen (TSD), main and flexcom U(S)ART, SPI, I2C, PWM, RTTC, ADC, USB device+host, Class D Audio, efuse (SFC)
   - More information [here](https://www.microchip.com/en-us/product/ATSAMA5D27C-D1G).
 - TI LP5030/5036 RGB LED driver chips
 - SkyTraq dead-reckoning GPS receiver with 6-axis motion sensors
