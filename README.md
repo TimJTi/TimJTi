@@ -78,7 +78,7 @@ So I sat back and realised that since NuttX is POSIX, and more similar to Linux 
 
 #### Linux
 
-Bottom line: I should not have bothered with any of the above and I strongly strongly commend anyone wanting to start working with NuttX to NOT mess around and use a Linux development environment.
+Bottom line: I should not have bothered with any of the above and I strongly strongly commend anyone wanting to start working with NuttX to NOT mess around: use a Linux development environment!
 
 A £450 Intel NUC with a quad-core i5 processor was bought, the dual-boot SSD wiped, and a fresh install of Ubuntu 20.04 applied, followed by:
 
