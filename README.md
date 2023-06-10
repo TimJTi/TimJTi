@@ -129,9 +129,24 @@ I decided to bite on the bullet, and learned how to merge the latest "upstream/m
 
 With the wonderful benefit of hindsight I would commend anyone to always fork NuttX and keep up to date with the latest upstream master.
 
-### GitHub+NuttX Coding Standard
+### NuttX Coding Standard
 
-More to follow.
+I put my hand up. Over the years my coding "style" got sloppy. I so often worked with code originally written by others, then modified by me, that I never really adopted a specific style. Probably my default was related to Kernighan and Ritchie (anyone remember that!?) but heavily influenced by GNU.
+  
+Originally I was going to write this section to mildly criticise the NuttX style...but having used it for over a year now it is second nature and I am *really* pleased that my code is consistent. I am even changing non-NuttX code of mine to match it as I love it all being the same.
+  
+So: it may not be "your" style but just follow it. It's great that everything in the repo is pretty much the same.
 
+### GitHub
+
+Most reading this are probably well-versed with GitHub. For me, it was an uphill struggle. I think I might have made it harder for myself by using GitHub Desktop - it works OK on Windows and MAC but the Linux version is some kind of port so doesn't support many of the ease-of-use features such as cherry-picking by drag/drop: Linux really needs command-line skills.
+  
+Here are the few useful things I picked up along the way.
+
+- Make plenty of use of branches <details to be added>
+- rebase to "upstream master" when necessary <details to be added>
+- Commits **must** be squashed, with a single commit message. The command line tricks for this are <details to be added>
+- Sometimes a force-push is needed. Do it like this <details to be added>
+ 
 </details>
 
