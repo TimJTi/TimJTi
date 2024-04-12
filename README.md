@@ -80,17 +80,36 @@ So I sat back and realised that since NuttX is POSIX, and more similar to Linux 
 
 Bottom line: I should not have bothered with any of the above and I strongly strongly commend anyone wanting to start working with NuttX to NOT mess around: use a Linux development environment!
 
-A £450 Intel NUC with a quad-core i5 processor was bought, the dual-boot SSD wiped, and a fresh install of Ubuntu 20.04 applied, followed by:
+A £450 Intel NUC with a quad-core i5 processor was bought, the dual-boot SSD wiped, and a fresh install of Ubuntu 20.04 applied, followed by installing the arm gcc tools etc. The instructions for this are (now) for Ubuntu 22.04.4 LTS and take into account changes and deprecations from the originally found instructions [here](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa) and include all the subsequent "tweaks" needed.
 
-- [arm-none-eabi tools](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
-  - I followed the information [here](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa) but also found I had to add links for:
-    - arm-none-eabi-ar
-    - arm-none-eabi-ld
-    - arm-none-eabi--nm
-    - arm-none-eabi-objcopy
-- Visual Studio Code with extensions
+1. If there's an existing install of older arm gcc tools, uninstall them:
+   >        sudo apt remove gcc-arm-none-eabi
+2. Download the latest arm tools from their [website](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
+3. Unpack it to a convenient directory such as /usr/share
+4. Create symbolic links:
+   > sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-gcc /usr/bin/arm-none-eabi-gcc  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-g++ /usr/bin/arm-none-eabi-g++  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-gdb /usr/bin/arm-none-eabi-gdb  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-size /usr/bin/arm-none-eabi-size  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-objcopy /usr/bin/arm-none-eabi-objcopy  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-ar /usr/bin/arm-none-eabi-ar  
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-ld /usr/bin/arm-none-eabi-ld 
+     sudo ln -s /usr/share/gcc-arm-none-eabi-YOUR-VERSION/bin/arm-none-eabi-nm /usr/bin/arm-none-eabi-nm
+5. Install dependencies and create symbolic links:
+   > sudo apt install libncurses-dev  
+     sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5  
+     sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+6.Check it works:
+   > arm-none-eabi-gcc --version  
+     arm-none-eabi-g++ --version  
+     arm-none-eabi-gdb --version  
+     arm-none-eabi-size --version
+7. I found that gdb failed to work unless I downgraded to python3.8 see [here](https://www.linuxcapable.com/install-python-3-8-on-ubuntu-linux/)
+8. In my case I use a Segger Jlink for debugging, so download and install the relevant package from the Segger website
+9. Visual Studio Code with extensions
   - Microsoft C/C++
   - [Cortex debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug&ssr=false#overview)
+9. Set up VS Code launch.json files to suit
 
 
 ## Things to read
