@@ -23,7 +23,7 @@ Fast forward through 20 years of so-called promotion into product management, an
 
 A custom board with the following hardware:
 
-- SAMA5D27-D1G
+- SAMA5D27C-D1G
   - Arm Cortex A5 running up to 500 MHz, with 1Gbit DDR2 memory
   - Many peripherals, almost all of which are used with this design
     - CAN, LIN, LCD, resistive touchscreen (TSD), main and flexcom U(S)ART, SPI, I2C, PWM, RTTC, ADC, USB device+host, Class D Audio, efuse (SFC)
@@ -36,7 +36,7 @@ A custom board with the following hardware:
   - Support USB keyboard/mouse
 - analogue and digital I/O
 
-## Why Nuttx?
+## Why NuttX?
 
 The project had progressed quite well as a bare-metal design - something I'm totally comfortable with - until I realised that the plan for the product to not only behave as a USB device (well catered for by Atmel/Microchip) but also as a USB host,  to allow the connection of memory sticks for example, meant the bare-metal approach would likely prove to be an uphill struggle.
 
